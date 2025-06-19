@@ -62,13 +62,13 @@
       // ・出てきたリストの上にホバーできるか
       // ※必ずレビュー前に上記挙動が問題ないか確認すること
       $(function() {
-       $('.menu__list').children().hover(function() {
-         $(this).children().next().stop().slideDown();
-        },
-        function() {
-         $(this).children().next().stop().slideUp();
+        $('.menu__list').children().hover(function() {
+            $(this).children().next().stop().slideDown();
+          },
+          function() {
+            $(this).children().next().stop().slideUp();
+        });
       });
-    });
     </script>
   </body>
 </html>

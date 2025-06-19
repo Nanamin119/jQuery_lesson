@@ -101,23 +101,27 @@
       // eachには引数を二つ持たせることができ、第一引数はDOM要素のインデックス番号、第二引数ではDOM要素自体が取得できます
       $(document).ready(function() {
         $('.select').change(datacategorytype);
-        datacategorytype();
+        // .changeでdatacategorytypeを変更している
+
+        function datacategorytype(){
+          const selectwrapper = $('.select').val();
+          //select内のvalue要素を取得し、定数selectwrapperに代入します。
+          // .each()でくり返し処理を行う
+          //ifで条件分岐をしています。
+          //allの部分を.eachの外に記載すると無駄な処理が減る
+          $('.list li').each(function() {
+            const list = $(this).data('category-type');
+            if (selectwrapper === 'all'){
+              $(this).show();
+            }else if(selectwrapper === list){
+              $(this).show();
+            }else{
+              $(this).hide();
+            }
+          });
+        };
       });
 
-      function datacategorytype(){
-        const selectwrapper = $('.select').val();
-
-        $('.list li').each(function() {
-          const list = $(this).data('category-type');
-          if (selectwrapper === 'all'){
-            $(this).show();
-            }else if(selectwrapper === list){
-            $(this).show();
-            }else{
-            $(this).hide();
-            }
-        });
-      };
     </script>
   </body>
 </html>
